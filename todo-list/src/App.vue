@@ -12,6 +12,7 @@ export default {
   },
 
   methods: {
+    // metodo per richiamare il server in cui sono conservati tutti i dati per stamparli in pagina
     getAllData() {
       axios.get(API_URL + "api.php")
         .then(res => {
@@ -53,9 +54,23 @@ export default {
   }
 
   .ctn_list {
-    margin-top: 20px;
-    width: 100%;
+    color: #ffffff;
+    width: 80%;
+    margin: 0 auto;
     padding: 10px;
+    text-align: start;
+
+    ul {
+      padding: 0;
+      list-style: none;
+
+      li {
+        font-size: 20px;
+        border-bottom: solid 1px #ffffff;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+    }
   }
 }
 </style>
