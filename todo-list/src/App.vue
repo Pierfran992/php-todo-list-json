@@ -7,6 +7,8 @@ export default {
   name: "App",
   data() {
     return {
+      newElem: "",
+
       todoList: [],
     };
   },
@@ -18,6 +20,22 @@ export default {
         .then(res => {
           const data = res.data;
           this.todoList = data;
+        });
+    },
+
+    // metodo per creare e inserire un nuovo elemento nella todoList
+    createElem(e) {
+      e.preventDefault();
+
+      const newParams = {
+        params: {
+          'newElem': this.newElem
+        }
+      };
+
+      axios.get(API_URL + 'create-todo.php', newParams)
+        .then(() => {
+          this.getAllData();
         });
     }
   },
@@ -31,7 +49,15 @@ export default {
 <template>
   <div class="container">
     <h1>Todo List</h1>
+
     <div class="ctn_list">
+      <!-- form per inserire un nuovo elemento -->
+      <form @submit="createElem">
+        <label for="newElem">Inserisci un nuovo elemento: </label>
+        <input type="text" name="newElem" v-model="newElem">
+        <input type="submit" value="Crea">
+      </form>
+      <!-- lista in cui stampo i dati contenuti nel server -->
       <ul>
         <li v-for="(elem, ind) in todoList" :key="ind">
           {{ elem.text }}
@@ -45,7 +71,7 @@ export default {
 .container {
   background-color: blue;
   width: 900px;
-  height: 700px;
+  height: fit-content;
   margin: 100px auto;
   text-align: center;
 
