@@ -35,6 +35,7 @@ export default {
 
       axios.get(API_URL + 'create-todo.php', newParams)
         .then(() => {
+          this.newElem = "";
           this.getAllData();
         });
     }
