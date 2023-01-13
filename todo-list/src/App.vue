@@ -56,13 +56,15 @@ export default {
         <span id="right_title">A GUARDARE</span>
       </h1>
 
-      <div class="ctn_list">
+      <div class="ctn_form">
         <!-- form per inserire un nuovo elemento -->
         <form @submit="createElem">
-          <label for="newElem">Inserisci un nuovo elemento: </label>
-          <input type="text" name="newElem" v-model="newElem">
-          <input type="submit" value="Crea">
+          <input type="text" name="newElem" v-model="newElem" placeholder="Inserisci un nuovo anime" id="addAnime">
+          <input type="submit" value="Crea" id="btn_add">
         </form>
+      </div>
+
+      <div class="ctn_list">
         <!-- lista in cui stampo i dati contenuti nel server -->
         <ul>
           <li v-for="(elem, ind) in todoList" :key="ind">
@@ -91,7 +93,6 @@ export default {
     width: 100%;
     height: 100%;
     padding: 10px;
-    overflow-y: auto;
 
     // regole titolo
     h1 {
@@ -118,12 +119,53 @@ export default {
       }
     }
 
+    // regole form
+    .ctn_form {
+      width: fit-content;
+      height: 50px;
+      line-height: 50px;
+      margin: 20px auto;
+
+      #addAnime {
+        background-color: rgba($color: #000000, $alpha: 0.9);
+        color: #ffffff;
+        font-size: 20px;
+        width: 350px;
+        height: 40px;
+        padding-left: 10px;
+        border: none;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+
+        &:focus {
+          outline: none;
+          border: solid 1px #ffffff;
+        }
+      }
+
+      #btn_add {
+        background-color: rgba($color: #000000, $alpha: 0.9);
+        color: #ffffff;
+        font-size: 20px;
+        width: fit-content;
+        height: 40px;
+        padding: 0 10px;
+        border: none;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        cursor: pointer;
+      }
+    }
+
+    // regole lista
     .ctn_list {
       color: #ffffff;
       width: 80%;
+      height: calc(100% - 140px);
       margin: 0 auto;
       padding: 10px;
       text-align: start;
+      overflow-y: auto;
 
       ul {
         padding: 0;
