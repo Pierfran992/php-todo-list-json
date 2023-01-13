@@ -19,5 +19,6 @@ $todoList = [
     ],
 ];
 
-$jsonTodoList = json_encode($todoList);
-file_put_contents('./todo.json', $jsonTodoList);
+// commento per non far sovrascrivere più il file todo.json
+// $jsonTodoList = json_encode($todoList);
+// file_put_contents('./todo.json', $jsonTodoList);
