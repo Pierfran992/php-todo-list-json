@@ -68,7 +68,15 @@ export default {
         <!-- lista in cui stampo i dati contenuti nel server -->
         <ul>
           <li v-for="(elem, ind) in todoList" :key="ind">
-            {{ elem.text }}
+            <span>
+              {{ elem.text }}
+            </span>
+
+            <!-- icone da cliccare per eliminare o spuntare un elemento -->
+            <div class="ctn_btn">
+              <font-awesome-icon icon="fa-regular fa-circle-check" class="check" />
+              <font-awesome-icon icon="fa-solid fa-trash" class="trash" />
+            </div>
           </li>
         </ul>
       </div>
@@ -172,10 +180,19 @@ export default {
         list-style: none;
 
         li {
+          background-color: rgba($color: #000000, $alpha: 0.7);
           font-size: 20px;
-          border-bottom: solid 1px #ffffff;
-          padding-bottom: 10px;
+          height: 40px;
+          line-height: 40px;
           margin-bottom: 20px;
+          display: flex;
+          justify-content: space-between;
+
+          .trash,
+          .check {
+            padding-right: 20px;
+            cursor: pointer;
+          }
         }
       }
     }
