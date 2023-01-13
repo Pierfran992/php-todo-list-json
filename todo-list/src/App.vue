@@ -129,7 +129,7 @@ export default {
       #addAnime {
         background-color: rgba($color: #000000, $alpha: 0.9);
         color: #ffffff;
-        font-size: 20px;
+        font-size: 16px;
         width: 350px;
         height: 40px;
         padding-left: 10px;
@@ -146,7 +146,7 @@ export default {
       #btn_add {
         background-color: rgba($color: #000000, $alpha: 0.9);
         color: #ffffff;
-        font-size: 20px;
+        font-size: 16px;
         width: fit-content;
         height: 40px;
         padding: 0 10px;
