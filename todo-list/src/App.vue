@@ -50,7 +50,11 @@ export default {
 <template>
   <div class="container">
     <div class="sub_container">
-      <h1>ANIME DA GUARDARE</h1>
+      <!-- titolo -->
+      <h1>
+        <span id="left_title">ANIME D</span>
+        <span id="right_title">A GUARDARE</span>
+      </h1>
 
       <div class="ctn_list">
         <!-- form per inserire un nuovo elemento -->
@@ -73,6 +77,7 @@ export default {
 <style lang="scss">
 @use "./styles/general.scss" as *;
 
+// regole container principale
 .container {
   background-image: url("./assets/img/mixanime.jpg");
   background-size: cover;
@@ -80,18 +85,37 @@ export default {
   height: 800px;
   margin: 100px auto;
 
+  // regole container secondario
   .sub_container {
     background-color: rgba($color: #000000, $alpha: 0.7);
     width: 100%;
     height: 100%;
     padding: 10px;
-    text-align: center;
     overflow-y: auto;
 
+    // regole titolo
     h1 {
-      color: #ffffff;
-      font-family: 'Martian Mono', monospace;
+      opacity: 0.7;
       font-size: 40px;
+      width: fit-content;
+      height: 50px;
+      line-height: 50px;
+      margin: 0 auto;
+
+      #left_title,
+      #right_title {
+        font-family: 'Martian Mono', monospace;
+      }
+
+      #left_title {
+        color: #000000;
+        background-color: #ffffff;
+      }
+
+      #right_title {
+        color: #ffffff;
+        background-color: #000000;
+      }
     }
 
     .ctn_list {
